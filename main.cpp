@@ -13,7 +13,7 @@ void init() {
 	cbreak();
   // Don't display a cursor.
   curs_set(FALSE);
-  // Don;t echo keypresses.
+  // Don't echo keypresses.
 	noecho();
   // Return from getch after 0.1s
   halfdelay(1);
@@ -31,6 +31,8 @@ void getWindowDimensions() {
   getmaxyx(stdscr, term_size_y, term_size_x);
 }
 
+// Clamps the given ordinate to lie in [min ... max] and returns true if had
+// to be clamped.
 bool collideAndClampPosition(int* position, int min, int max) {
   if (*position > max) {
     *position = max;
@@ -53,7 +55,7 @@ int main(int argc, const char **argv) {
   int dx = 1, dy = 1;
 
   // Collision borders for the ball.
-  int min_x = 1, max_x = term_size_x, min_y = 1, max_y = term_size_y;
+  int min_x = 0, max_x = term_size_x, min_y = 0, max_y = term_size_y;
 
   while (true) {
     getWindowDimensions();
