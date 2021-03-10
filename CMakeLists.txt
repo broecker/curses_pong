@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 2.8.9) project(salvo_curses)
+cmake_minimum_required(VERSION 2.8.9) 
+project(salvo_curses)
 
 find_package(Curses REQUIRED)
 
